@@ -28,8 +28,11 @@ struct Message {};
 // Empty testing struct, with template instantiation
 struct Message2 {};
 
+namespace rosidl_generator_traits
+{
 template<>
-struct rosidl_generator_traits::is_message<Message2>: std::true_type {};
+struct is_message<Message2>: std::true_type {};
+}
 
 TEST(Test_rosidl_generator_traits, is_message) {
   // A message is not a service
